@@ -14,7 +14,7 @@ function contarLetras(texto) {
 }
 
 function probarContar() {
-    let texto = prompt("Escribí un texto");
+    let texto = prompt("Escribi un texto");
     let resultado = contarLetras(texto);
     alert(resultado);
 }
@@ -34,10 +34,32 @@ function maximo(a, b, c) {
 }
 
 function probarMaximo() {
-    let a = Number(prompt("Primer número"));
-    let b = Number(prompt("Segundo número"));
-    let c = Number(prompt("Tercer número"));
+    let a = Number(prompt("Primer numero"));
+    let b = Number(prompt("Segundo numero"));
+    let c = Number(prompt("Tercer numero"));
 
     let resultado = maximo(a, b, c);
+    alert(resultado);
+}
+
+function validarPassword(password) {
+    let tieneNumero = false;
+
+    for (let i = 0; i < password.length; i++) {
+        if (password[i] >= "0" && password[i] <= "9") {
+            tieneNumero = true;
+        }
+    }
+
+    if (password.length >= 8 && tieneNumero) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function probarPassword() {
+    let password = prompt("Escribi una contraseña");
+    let resultado = validarPassword(password);
     alert(resultado);
 }
