@@ -1,0 +1,37 @@
+/* Fondo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a; /* azul oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Contenedor de cada botón */
+div {
+    margin: 10px;
+}
+
+/* Botones */
+button {
+    width: 220px;
+    padding: 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2563eb; /* azul */
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+button:hover {
+    background-color: #1e40af;
+    transform: scale(1.05);
+}
+
+/* Click */
+button:active {
+    transform: scale(0.98);
+}

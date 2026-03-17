@@ -206,3 +206,180 @@ function ejercicio13() {
     const sumaEdades = usuarios.reduce((total, usuario) => total + usuario.edad, 0);
     alert(sumaEdades);
 }
+// EJERCICIO 14 — DESTRUCTURING
+
+const producto = {
+    nombre: "Notebook",
+    precio: 1000
+};
+
+function ejercicio14() {
+
+    const { nombre, precio } = producto;
+
+    alert(nombre + " - $" + precio);
+}
+
+
+// EJERCICIO 15 — SPREAD
+
+function ejercicio15() {
+
+    const nuevoProducto = {
+        ...producto,
+        stock: 5
+    };
+
+    alert(JSON.stringify(nuevoProducto));
+}
+
+
+
+// EJERCICIO 16 — BUSCAR PRODUCTO
+
+
+function buscarProducto(productos, nombre) {
+    return productos.find(p => p.nombre === nombre);
+}
+
+function ejercicio16() {
+
+    let productos = [];
+    let cantidad = Number(prompt("¿Cuántos productos?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let nombre = prompt("Nombre del producto");
+        let precio = Number(prompt("Precio"));
+
+        productos.push({nombre: nombre, precio: precio});
+    }
+
+    let nombreBuscado = prompt("¿Qué producto querés buscar?");
+    let resultado = buscarProducto(productos, nombreBuscado);
+
+    alert(JSON.stringify(resultado));
+}
+
+
+
+// EJERCICIO 17 — PRODUCTOS CAROS
+
+
+
+function productosCaros(productos) {
+    return productos.filter(p => p.precio > 50);
+}
+
+function ejercicio17() {
+
+    let productos = [];
+    let cantidad = Number(prompt("¿Cuántos productos?"));
+
+    for (let i = 0; i < cantidad; i++) {
+        let nombre = prompt("Nombre del producto");
+        let precio = Number(prompt("Precio"));
+
+        productos.push({nombre: nombre, precio: precio});
+    }
+
+    let resultado = productosCaros(productos);
+
+    alert(JSON.stringify(resultado));
+}
+
+
+
+
+// EJERCICIO 18 — PROMEDIO
+
+
+function promedio(numeros) {
+
+    let suma = 0;
+
+    for (let i = 0; i < numeros.length; i++) {
+        suma += numeros[i];
+    }
+
+    return suma / numeros.length;
+}
+
+function ejercicio18() {
+
+    let entrada = prompt("Ingresá números separados por coma (ej: 10,8,6,9)");
+    let numeros = entrada.split(",").map(Number);
+
+    let resultado = promedio(numeros);
+
+    alert("Promedio: " + resultado);
+}
+
+// ARRAY DADO (NO MODIFICAR)
+
+const usuarios2 = [
+    {id:1, nombre:"Ana", edad:20},
+    {id:2, nombre:"Juan", edad:15},
+    {id:3, nombre:"Pedro", edad:30}
+];
+
+
+// 1. OBTENER TODOS LOS USUARIOS
+
+function obtenerUsuarios() {
+    return usuarios2;
+}
+
+function probarObtenerUsuarios() {
+    alert(JSON.stringify(obtenerUsuarios()));
+}
+
+
+
+// 2. OBTENER USUARIO POR ID
+
+function obtenerUsuarioPorId(id) {
+    return usuarios2.find(u => u.id === id);
+}
+
+function probarPorId() {
+    let id = Number(prompt("Ingresá el ID"));
+    let resultado = obtenerUsuarioPorId(id);
+    alert(JSON.stringify(resultado));
+}
+
+
+
+// 3. OBTENER MAYORES DE EDAD
+
+function obtenerMayores() {
+    return usuarios2.filter(u => u.edad >= 18);
+}
+
+function probarMayores() {
+    alert(JSON.stringify(obtenerMayores()));
+}
+
+
+// 4. CREAR USUARIO
+
+function crearUsuario(nombre, edad) {
+
+    let nuevoId = usuarios2.length + 1;
+
+    let nuevoUsuario = {
+        id: nuevoId,
+        nombre: nombre,
+        edad: edad
+    };
+
+    usuarios2.push(nuevoUsuario);
+}
+
+function probarCrear() {
+    let nombre = prompt("Nombre");
+    let edad = Number(prompt("Edad"));
+
+    crearUsuario(nombre, edad);
+
+    alert("Usuario creado:\n" + JSON.stringify(usuarios2));
+}
